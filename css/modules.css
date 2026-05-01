@@ -1,0 +1,415 @@
+/* ============================================
+   Minik Kalemler - Module Specific Styles
+   ============================================ */
+
+/* --- Quiz Game Styles --- */
+.quiz-container {
+  max-width: 800px;
+  margin: var(--spacing-xl) auto;
+  padding: var(--spacing-lg);
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.progress-wrapper {
+  width: 100%;
+  height: 12px;
+  background: var(--pastel-blue);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-xl);
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-blue), var(--color-purple));
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.question-text {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xl);
+  font-weight: 700;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.option-btn {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  background: white;
+  border: 3px solid var(--pastel-purple);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 0 var(--pastel-purple);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: left;
+}
+
+.option-emoji {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  background: var(--pastel-blue);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+
+.option-text-span {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.option-btn.image-only-option {
+  justify-content: center;
+  padding: var(--spacing-lg);
+  min-height: 150px;
+}
+
+.option-emoji.large-emoji {
+  font-size: 5rem;
+  width: 120px;
+  height: 120px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.option-btn:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-purple);
+  box-shadow: 0 9px 0 var(--pastel-purple);
+}
+
+.option-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.option-btn.correct {
+  background-color: var(--color-green);
+  border-color: #45d08e;
+  color: white;
+  box-shadow: 0 4px 0 #3bb37a;
+}
+
+.option-btn.wrong {
+  background-color: var(--color-red);
+  border-color: #e64a4a;
+  color: white;
+  box-shadow: 0 4px 0 #cc4141;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  75% {
+    transform: translateX(-10px);
+  }
+}
+
+/* --- Matching Game Styles --- */
+.matching-game {
+  display: flex;
+  justify-content: space-between;
+  /* Balanced centering */
+  align-items: flex-start;
+  gap: var(--spacing-2xl);
+  /* Large gap in the middle */
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-md);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.matching-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-items: center;
+  /* Center items within columns */
+  flex: 1;
+  max-width: 250px;
+}
+
+.match-item {
+  background: white;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  cursor: grab;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid transparent;
+  user-select: none;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 160px;
+  text-align: center;
+  position: relative;
+}
+
+.match-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-blue);
+}
+
+.match-item div {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.match-item span {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+}
+
+.match-item.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+  border: 2px dashed var(--color-purple);
+}
+
+.match-item.matched {
+  background: var(--color-green);
+  border-color: #2e7d32;
+  /* Darker green border */
+  color: white;
+  cursor: default;
+  pointer-events: none;
+  transform: scale(0.9);
+  /* Scale down to show it's "locked" */
+  box-shadow: 0 4px 15px var(--correct-glow);
+  opacity: 0.9;
+}
+
+.match-item.matched span {
+  color: white;
+}
+
+.match-item.matched::after {
+  content: '✅';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.8rem;
+  background: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.match-item.wrong {
+  animation: shake 0.5s ease-in-out;
+  border-color: var(--color-red);
+}
+
+/* --- Video Page Styles --- */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 12px 28px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: white;
+  font-weight: 700;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.tab-btn.active {
+  background: white;
+  color: #6a11cb;
+  border-color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.video-player-container {
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+  /* Fixed height as requested, with responsive fallback */
+  height: 500px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+}
+
+.video-wrapper {
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.video-info {
+  padding: 15px 25px;
+  background: white;
+  border-top: 1px solid #eee;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.video-info h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.video-player-container video {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: black;
+  object-fit: contain; /* Keeps aspect ratio proper without cropping */
+}
+
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: linear-gradient(45deg, #1a1a1a, #333);
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.video-placeholder span {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  .question-text {
+    font-size: 1.4rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .option-btn {
+    padding: var(--spacing-md);
+    font-size: 1.2rem;
+  }
+
+  .matching-game {
+    width: 95vw;
+    /* Use 95% of viewport width */
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--spacing-xs);
+    gap: var(--spacing-sm);
+  }
+
+  .match-item {
+    padding: var(--spacing-xs);
+    max-width: 140px;
+    /* Slightly smaller items for mobile to ensure gap */
+  }
+
+  .match-item div {
+    font-size: 2.5rem;
+  }
+
+  .match-item span {
+    font-size: 1rem;
+  }
+
+  .tab-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .matching-game {
+    gap: var(--spacing-xs);
+  }
+
+  .match-item {
+    padding: var(--spacing-sm);
+  }
+
+  .match-item span {
+    font-size: 0.8rem;
+  }
+}

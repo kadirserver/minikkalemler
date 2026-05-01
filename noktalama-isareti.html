@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Noktalama İşareti Oyunu - Doğru kesme işaretini bul! Minik Kalemler eğitici oyun platformu.">
+  <title>Noktalama İşareti - Minik Kalemler</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+
+<body class="animated-bg">
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <main class="game-page container">
+    <div class="game-topbar">
+      <a href="index.html" class="btn-back"><span class="arrow">←</span> Ana Sayfa</a>
+      <h1 class="game-title">📝 Noktalama İşareti</h1>
+    </div>
+    <div class="progress-section">
+      <div class="progress-info">
+        <span class="progress-label" id="progress-label">Soru 1 / 4</span>
+        <div class="progress-stars" id="progress-stars"></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+    <div class="question-area" id="question-area">
+      <div class="question-card">
+        <span class="question-number" id="question-number">Soru 1</span>
+        <p class="question-text">Hangi cümlede kesme işareti doğru kullanılmıştır?</p>
+        <div class="options-container" id="options-container"></div>
+      </div>
+    </div>
+    <div class="completion-screen" id="completion-screen">
+      <div class="completion-card">
+        <span class="completion-emoji">🎉</span>
+        <h2 class="completion-title">Tebrikler!</h2>
+        <p class="completion-msg" id="completion-msg">Harika bir iş çıkardın!</p>
+        <p class="completion-score" id="final-score"></p>
+        <div>
+          <button class="btn-restart" onclick="initGame()">🔄 Tekrar Oyna</button>
+          <a href="index.html" class="btn-home">🏠 Ana Sayfa</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="js/noktalama-isareti.js"></script>
+</body>
+
+</html>

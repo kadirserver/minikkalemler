@@ -1,0 +1,373 @@
+/* ============================================
+   Minik Kalemler - Game Page Styles
+   ============================================ */
+
+.game-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-lg) var(--spacing-md);
+  position: relative;
+}
+
+/* --- Top Bar --- */
+.game-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+  z-index: 2;
+}
+
+.game-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* --- Progress Section --- */
+.progress-section {
+  position: relative;
+  z-index: 2;
+  margin-bottom: var(--spacing-xl);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.progress-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.progress-stars {
+  display: flex;
+  gap: 4px;
+  font-size: 1.2rem;
+}
+
+.progress-stars .star {
+  opacity: 0.3;
+  transition: var(--transition-normal);
+  filter: grayscale(1);
+}
+
+.progress-stars .star.earned {
+  opacity: 1;
+  filter: grayscale(0);
+  animation: starPop 0.4s ease;
+}
+
+@keyframes starPop {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+.progress-track {
+  width: 100%;
+  height: 20px;
+  background: rgba(255,255,255,0.25);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(90deg, var(--color-green), var(--color-teal), var(--color-blue));
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; right: 0; bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* --- Question Card --- */
+.question-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.question-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  max-width: 700px;
+  width: 100%;
+  animation: cardEnter 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.question-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--color-orange), var(--color-pink), var(--color-purple));
+}
+
+@keyframes cardEnter {
+  0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.question-number {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-purple), var(--color-pink));
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.question-text {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
+}
+
+.question-emoji {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+/* --- Options --- */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.option-btn {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  color: var(--text-primary);
+  border: 3px solid transparent;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: left;
+}
+
+.option-emoji {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.4);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+.option-text-span {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.option-btn:nth-child(1) {
+  background: var(--pastel-pink);
+  border-color: var(--color-pink);
+}
+.option-btn:nth-child(2) {
+  background: var(--pastel-blue);
+  border-color: var(--color-blue);
+}
+.option-btn:nth-child(3) {
+  background: var(--pastel-yellow);
+  border-color: var(--color-orange);
+}
+
+.option-btn:hover:not(.disabled) {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.option-btn:active:not(.disabled) {
+  transform: scale(0.98);
+}
+
+.option-btn.correct {
+  background: var(--correct-bg) !important;
+  border-color: var(--correct-bg) !important;
+  color: white !important;
+  transform: scale(1.08);
+  box-shadow: 0 8px 30px var(--correct-glow);
+}
+
+.option-btn.wrong {
+  background: var(--wrong-bg) !important;
+  border-color: var(--wrong-bg) !important;
+  color: white !important;
+  animation: shake 0.5s ease;
+}
+
+.option-btn.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.option-btn.reveal-correct {
+  background: var(--correct-bg) !important;
+  border-color: var(--correct-bg) !important;
+  color: white !important;
+  opacity: 1 !important;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+/* --- Completion Screen (Modal) --- */
+.completion-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.completion-screen.active {
+  display: flex;
+  animation: cardEnter 0.6s ease;
+}
+
+.completion-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--card-shadow);
+  max-width: 500px;
+  width: 100%;
+}
+
+.completion-emoji {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: var(--spacing-md);
+  animation: bounce 1.5s ease infinite;
+}
+
+.completion-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.completion-msg {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.6;
+}
+
+.completion-score {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-purple);
+  margin-bottom: var(--spacing-xl);
+}
+
+.btn-restart, .btn-home {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: var(--transition-normal);
+  margin: var(--spacing-xs);
+}
+
+.btn-restart {
+  background: linear-gradient(135deg, var(--color-purple), var(--color-pink));
+  color: white;
+}
+
+.btn-restart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(196,113,237,0.4);
+}
+
+.btn-home {
+  background: rgba(255,255,255,0.8);
+  color: var(--text-primary);
+  border: 2px solid var(--color-purple);
+}
+
+.btn-home:hover {
+  background: var(--pastel-purple);
+  transform: scale(1.05);
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .question-card {
+    padding: var(--spacing-lg);
+  }
+  .question-text { font-size: 1.15rem; }
+  .option-btn { font-size: 1.05rem; padding: var(--spacing-md); }
+  .game-title { font-size: 1rem; }
+  .completion-card { padding: var(--spacing-xl); }
+  .completion-emoji { font-size: 3.5rem; }
+  .completion-title { font-size: 1.5rem; }
+}

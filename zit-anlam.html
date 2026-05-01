@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zıt Anlam Oyunu - Kelimeleri zıt anlamlarıyla eşleştir! Minik Kalemler eğitici oyun platformu.">
+  <title>Zıt Anlam Oyunu - Minik Kalemler</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/matching.css">
+</head>
+<body class="animated-bg">
+  <div class="floating-shapes">
+    <div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div>
+  </div>
+  <main class="game-page container">
+    <div class="game-topbar">
+      <a href="index.html" class="btn-back"><span class="arrow">←</span> Ana Sayfa</a>
+      <h1 class="game-title">🔄 Zıt Anlam Oyunu</h1>
+    </div>
+    <div class="progress-section">
+      <div class="progress-info">
+        <span class="progress-label" id="progress-label">0 / 6 eşleşme</span>
+        <div class="progress-stars" id="progress-stars"></div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <p class="match-instruction">Soldaki kelimeyi seç, sonra sağdaki zıt anlamını seç! 👆</p>
+    <div class="matching-board" id="game-area">
+      <div class="match-column">
+        <div class="column-label label-left">Kelime</div>
+        <div id="left-column"></div>
+      </div>
+      <div class="match-column">
+        <div class="column-label label-right">Zıt Anlam</div>
+        <div id="right-column"></div>
+      </div>
+    </div>
+    <div class="completion-screen" id="completion-screen">
+      <div class="completion-card">
+        <span class="completion-emoji">🎉</span>
+        <h2 class="completion-title">Tebrikler!</h2>
+        <p class="completion-msg" id="completion-msg"></p>
+        <p class="completion-score" id="final-score"></p>
+        <div>
+          <button class="btn-restart" onclick="initGame()">🔄 Tekrar Oyna</button>
+          <a href="index.html" class="btn-home">🏠 Ana Sayfa</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <svg id="matching-svg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100;">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+      </marker>
+    </defs>
+    <line id="drag-line" x1="0" y1="0" x2="0" y2="0" stroke="#333" stroke-width="5" marker-end="url(#arrowhead)" style="display: none; stroke-linecap: round;" />
+  </svg>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="js/zit-anlam.js"></script>
+</body>
+</html>

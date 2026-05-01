@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilgi Oyunu - Minik Kalemler</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/modules.css">
+</head>
+
+<body class="animated-bg">
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <main class="container game-page">
+    <div class="game-topbar">
+      <a href="index.html" class="btn-back"><span class="arrow">←</span> Ana Sayfa</a>
+      <h1 class="game-title">📝 Bilgi Oyunu</h1>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-info">
+        <span class="progress-label" id="progress-label">Soru 1 / 5</span>
+        <div class="progress-stars" id="progress-stars"></div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <div class="quiz-container">
+      <p id="question-text" class="question-text">Soru yükleniyor...</p>
+      
+      <div id="options-grid" class="options-grid">
+        <!-- Options will be injected here -->
+      </div>
+    </div>
+    <div class="completion-screen" id="completion-screen">
+      <div class="completion-card">
+        <span class="completion-emoji">🎉</span>
+        <h2 class="completion-title">Tebrikler!</h2>
+        <p class="completion-msg" id="completion-msg"></p>
+        <p class="completion-score" id="final-score"></p>
+        <div>
+          <button class="btn-restart" onclick="location.reload()">🔄 Tekrar Oyna</button>
+          <a href="index.html" class="btn-home">🏠 Ana Sayfa</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/quiz.js"></script>
+</body>
+
+</html>

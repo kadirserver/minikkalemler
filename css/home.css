@@ -1,0 +1,176 @@
+/* ============================================
+   Minik Kalemler - Homepage Styles
+   ============================================ */
+
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+  position: relative;
+}
+
+/* --- Hero Section --- */
+.hero {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: var(--spacing-md);
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-light);
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #fff 0%, #FFD54F 50%, #fff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* --- Games Grid --- */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Game Card --- */
+.game-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--color-pink), var(--color-purple), var(--color-blue));
+}
+
+.game-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+  border-color: var(--color-purple);
+}
+
+.game-card-emoji {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: var(--spacing-md);
+  transition: var(--transition-normal);
+}
+
+.game-card:hover .game-card-emoji {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.game-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.game-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-md);
+}
+
+.game-card-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-active {
+  background: linear-gradient(135deg, var(--color-green), var(--color-teal));
+  color: white;
+}
+
+.badge-soon {
+  background: linear-gradient(135deg, var(--pastel-purple), var(--pastel-pink));
+  color: var(--color-purple);
+}
+
+.game-card.coming-soon {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.game-card.coming-soon:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: transparent;
+  box-shadow: var(--card-shadow);
+}
+
+/* --- Footer --- */
+.home-footer {
+  margin-top: var(--spacing-2xl);
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+.home-footer span { color: var(--color-pink); }
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .hero-title { font-size: 2.5rem; }
+  .hero-subtitle { font-size: 1.15rem; }
+  .hero-emoji { font-size: 3rem; }
+  .games-grid { grid-template-columns: 1fr; }
+  .game-card { padding: var(--spacing-lg); }
+}

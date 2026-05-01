@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eşleştirme Oyunu - Minik Kalemler</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/modules.css">
+</head>
+
+<body class="animated-bg">
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <main class="container game-page">
+    <div class="game-topbar">
+      <a href="index.html" class="btn-back"><span class="arrow">←</span> Ana Sayfa</a>
+      <h1 class="game-title">🧩 Eşleştirme Oyunu</h1>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-info">
+        <span class="progress-label" id="progress-label">0 / 4 eşleşme</span>
+        <div class="progress-stars" id="progress-stars"></div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <div class="matching-game">
+      <div class="matching-column" id="left-column">
+        <!-- Animals will be injected here -->
+      </div>
+      
+      <div class="matching-column" id="right-column">
+        <!-- Tools will be injected here -->
+      </div>
+    </div>
+    <div class="completion-screen" id="completion-screen">
+      <div class="completion-card">
+        <span class="completion-emoji">🎉</span>
+        <h2 class="completion-title">Tebrikler!</h2>
+        <p class="completion-msg" id="completion-msg">Tüm eşleştirmeleri doğru yaptın!</p>
+        <p class="completion-score" id="final-score"></p>
+        <div>
+          <button class="btn-restart" onclick="location.reload()">🔄 Tekrar Oyna</button>
+          <a href="index.html" class="btn-home">🏠 Ana Sayfa</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <svg id="matching-svg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100;">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+      </marker>
+    </defs>
+    <line id="drag-line" x1="0" y1="0" x2="0" y2="0" stroke="#333" stroke-width="5" marker-end="url(#arrowhead)" style="display: none; stroke-linecap: round;" />
+  </svg>
+
+  <script src="js/matching.js"></script>
+</body>
+
+</html>

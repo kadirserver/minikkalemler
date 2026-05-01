@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Çark Oyunu - Çarkı çevir, kelimeyi tanımla! Minik Kalemler eğitici oyun platformu.">
+  <title>Çark Oyunu - Minik Kalemler</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/wheel.css">
+</head>
+
+<body class="animated-bg">
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <main class="game-page container">
+    <div class="game-topbar">
+      <a href="index.html" class="btn-back"><span class="arrow">←</span> Ana Sayfa</a>
+      <h1 class="game-title">🎡 Çark Oyunu</h1>
+    </div>
+    <div class="progress-section">
+      <div class="progress-info">
+        <span class="progress-label" id="progress-label">0 / 8 kelime</span>
+        <div class="progress-stars" id="progress-stars"></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+    <div class="wheel-area" id="wheel-area">
+      <div class="definition-area" id="definition-area" style="display: block; margin-top: 0; margin-bottom: 20px;">
+        <p class="landed-word" id="landed-word" style="color: white;">Haydi çevir bakalım!</p>
+      </div>
+      <div class="wheel-wrapper">
+        <div class="wheel-pointer"></div>
+        <canvas id="wheel-canvas" onclick="spinWheel()" style="cursor: pointer;"></canvas>
+      </div>
+      <button class="spin-btn" id="spin-btn" onclick="spinWheel()">🎡 Çarkı Çevir!</button>
+    </div>
+    <div class="completion-screen" id="completion-screen">
+      <div class="completion-card">
+        <span class="completion-emoji">🎉</span>
+        <h2 class="completion-title">Tebrikler!</h2>
+        <p class="completion-msg" id="completion-msg"></p>
+        <p class="completion-score" id="final-score"></p>
+        <div>
+          <button class="btn-restart" onclick="initGame()">🔄 Tekrar Oyna</button>
+          <a href="index.html" class="btn-home">🏠 Ana Sayfa</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="js/cark.js"></script>
+</body>
+
+</html>
